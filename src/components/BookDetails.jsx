@@ -47,11 +47,21 @@ const BookDetails = () => {
                 <div className="w-8 h-8 bg-accent rounded-full opacity-50 flex items-center justify-center text-white">🕯️</div>
               </div>
             </div>
+            
+            {/* MASH Image - Historical Addition */}
+            <div className="mt-6">
+              <img 
+                src="/images/mash.png"
+                alt="Civil War MASH Unit - Historical Hospital on Wheels"
+                className="w-full max-w-full mx-auto rounded-md shadow-2xl border-2 border-primary/30"
+              />
+              <p className="text-center text-xs text-dark/50 mt-2">Civil War field hospital - The first MASH units</p>
+            </div>
           </div>
 
           <div>
             <div className="prose text-dark/80 mb-6">
-              <p className="leading-relaxed text-base">{book.description.substring(0, 2000)}.</p>
+              <p className="leading-relaxed text-base">{book.description.substring(0, 800)}...</p>
             </div>
 
             <div className="mb-6">
@@ -117,6 +127,22 @@ const BookDetails = () => {
                 <FaFire size={14} className="text-primary" />
                 <span>"A moving and informative historical novel" — Margaret V. Shedd</span>
                 <FaFire size={14} className="text-primary" />
+              </div>
+            </div>
+
+            {/* Historical Addition - The MASH Unit Info */}
+            <div className="mt-6 p-5 bg-primary/5 rounded-md border border-primary/20">
+              <h4 className="font-semibold text-primary mb-3 flex items-center gap-2">
+                <GiMedicines size={20} />
+                Historical Note: The First MASH Units
+              </h4>
+              <p className="text-dark/70 text-sm leading-relaxed">
+                In the mud-slicked fields of the 1860s, the first precursors to the American MASH unit functioned as a revolutionary "hospital on wheels" that brought life-saving surgery directly to the front lines. Under the innovative Letterman System, horse-drawn "flying" ambulances and dedicated stretcher-bearers formed a tireless chain of survival, rushing the wounded from the chaos of battle to mobile cities of canvas. Inside these "hospitals under canvas," surgeons and dedicated women of the relief corps worked through the night by the flickering glow of oil lanterns, performing grueling procedures on improvised tables to combat shock and infection. This blueprint of rapid-response medicine, pioneered by courageous volunteers who refused to wait for the wounded to reach distant cities, established the fundamental principle that would define military medicine for centuries to follow: bringing the hospital to the soldier.
+              </p>
+              <div className="mt-3 flex items-center gap-2 text-xs text-primary">
+                <FaFire size={12} />
+                <span>— From the historical archives of Civil War medicine</span>
+                <FaFire size={12} />
               </div>
             </div>
           </div>
