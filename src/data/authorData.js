@@ -1,6 +1,6 @@
 export const authorData = {
-  name: "Greene Vashiska",
-  fullName: "Greene Vashiska",
+  name: "Vashiska Greene",
+  fullName: "Vashiska Greene",
   email: "vashikagreene@aol.com",
   tagline: "Inspirational Fiction Author | Faith & Spiritual Growth",
   
@@ -23,7 +23,7 @@ Through their prayers, each character demonstrates how they laid out on the alta
   },
   
   authorBio: {
-    fullBio: `Greene Vashiska is an inspiring woman who is looking forward to pursuing her dreams. She was born in Thomasville, GA and raised in Florida and Texas. Her desire to write came forth as a passion that taunted her throughout her years of life. She would always hear a voice speak to her spirit, but never understood the purpose of the voice until a later time in life.
+    fullBio: `Vashiska Greene is an inspiring woman who is looking forward to pursuing her dreams. She was born in Thomasville, GA and raised in Florida and Texas. Her desire to write came forth as a passion that taunted her throughout her years of life. She would always hear a voice speak to her spirit, but never understood the purpose of the voice until a later time in life.
 
 By encountering trials and tribulations in life, she was first caused to be adolescent until she started developing in the spirit. Her writings are a testimony — evidence and proof that the Lord shows His existence and appearance in her life. She wants to share this joy and message with the world.
 
@@ -45,7 +45,7 @@ Writing models her testimony on the runway with a spirit, fashioned by the Lord.
       name: "ThriftBooks Reader",
       rating: 5,
       title: "A Spiritually Uplifting Read",
-      review: `Giving Birth to New Beginnings is a deeply moving exploration of faith and spiritual renewal. Greene Vashiska writes with sincerity and conviction, drawing readers into a journey of prayer and transformation that feels both personal and universal.`,
+      review: `Giving Birth to New Beginnings is a deeply moving exploration of faith and spiritual renewal. Vashiska Greene writes with sincerity and conviction, drawing readers into a journey of prayer and transformation that feels both personal and universal.`,
       date: "2014"
     }
   ]
