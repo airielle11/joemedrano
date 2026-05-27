@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { authorData } from '../data/authorData';
 
@@ -6,9 +6,15 @@ const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeTab, setActiveTab] = useState('home');
+  const activeLockRef = useRef(null);
+  const activeLockTimerRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
+      if (activeLockRef.current) {
+        return;
+      }
+
       setScrolled(window.scrollY > 60);
       const sections = ['home', 'about', 'book', 'contact'];
       const scrollPosition = window.scrollY + 150;
@@ -38,6 +44,17 @@ const Navigation = () => {
   const handleClick = (e, href, id) => {
     e.preventDefault();
     setActiveTab(id);
+    activeLockRef.current = id;
+
+    if (activeLockTimerRef.current) {
+      clearTimeout(activeLockTimerRef.current);
+    }
+
+    activeLockTimerRef.current = window.setTimeout(() => {
+      activeLockRef.current = null;
+      activeLockTimerRef.current = null;
+    }, 900);
+
     document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
     setIsMenuOpen(false);
   };
