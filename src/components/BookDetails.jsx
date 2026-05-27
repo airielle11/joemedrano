@@ -1,150 +1,67 @@
 import React from 'react';
-import { FaBook, FaStar, FaQuoteLeft, FaHeart, FaFire } from 'react-icons/fa';
-import { GiCrossedSwords, GiMedicines } from 'react-icons/gi';
+import { FaShoppingCart, FaStar } from 'react-icons/fa';
 import { authorData } from '../data/authorData';
 
 const BookDetails = () => {
   const book = authorData.book;
+  const { authorBio } = authorData;
+  const synopsis = book.description.split('\n\n')[0].trim();
 
   return (
-    <section id="book" className="py-20 bg-gradient-to-b from-light to-secondary/10">
-      <div className="container-custom mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="section-title">By Lantern's Light</h2>
-          <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
-          <p className="section-subtitle">A Civil War Epic of Courage, Compassion, and Determination</p>
-        </div>
+    <section id="book" data-reveal className="reveal-on-scroll py-24 md:py-28 relative overflow-hidden sanctuary-bg">
+      <div className="absolute inset-x-0 top-0 h-24 bg-linear-to-b from-light/20 via-transparent to-transparent pointer-events-none"></div>
+      <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-secondary/25 to-transparent"></div>
+      <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary-light/8 rounded-full blur-3xl pointer-events-none"></div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          <div className="relative">
-            <div className="bg-white rounded-md p-8 shadow-xl border-2 border-primary/20">
-              <div className="mb-6 relative">
-                <img 
-                  src="/images/lantern.jpg"
-                  alt="By Lantern's Light - Book Cover"
-                  className="w-full max-w-sm mx-auto rounded-md shadow-2xl border-4 border-white"
+      <div className="container-custom mx-auto relative z-10">
+        <div className="grid lg:grid-cols-5 gap-12 items-center">
+
+          {/* Left — book cover (2 cols) */}
+          <div className="lg:col-span-2 flex flex-col items-center lg:items-start">
+            <div className="relative w-full max-w-80 animate-fade-scale-in">
+              <div className="absolute -inset-4 bg-secondary/10 rounded-3xl blur-3xl pointer-events-none"></div>
+              <div className="relative bg-white p-3 shadow-2xl rounded-2xl" style={{boxShadow: '0 25px 60px rgba(0,0,0,0.5)'}}>
+                <img
+                  src="/images/giving_birth_to_new_beginnings.jpg"
+                  alt="Giving Birth to New Beginnings - Book Cover"
+                  className="w-full h-auto block rounded-xl"
                 />
-                <div className="absolute -top-3 -right-3 bg-primary text-white rounded-full p-2 shadow-lg">
-                  <FaStar size={16} />
-                </div>
               </div>
-              
-              <div className="text-center bg-secondary/10 rounded-md p-4">
-                <h3 className="text-2xl font-display font-bold text-primary mb-2">{book.fullTitle}</h3>
-                <div className="w-16 h-0.5 bg-primary mx-auto my-2"></div>
-                <p className="text-dark/60 text-sm">By Carol Cutrona</p>
-                <div className="flex justify-center gap-1 mt-3">
-                  {[...Array(5)].map((_, i) => (
-                    <FaStar key={i} size={16} className="text-primary" />
-                  ))}
-                </div>
-                <p className="text-xs text-primary mt-2 font-semibold">⚔️ A Story of Unsung Heroes ⚔️</p>
-              </div>
-              
-              <div className="flex justify-center gap-2 mt-4">
-                <div className="w-8 h-8 bg-primary rounded-full opacity-50 flex items-center justify-center text-white">⚔️</div>
-                <div className="w-8 h-8 bg-secondary rounded-full opacity-50 flex items-center justify-center">🏥</div>
-                <div className="w-8 h-8 bg-accent rounded-full opacity-50 flex items-center justify-center text-white">🕯️</div>
-              </div>
-            </div>
-            
-            {/* MASH Image - Historical Addition */}
-            <div className="mt-6">
-              <img 
-                src="/images/mash.png"
-                alt="Civil War MASH Unit - Historical Hospital on Wheels"
-                className="w-full max-w-full mx-auto rounded-md shadow-2xl border-2 border-primary/30"
-              />
-              <p className="text-center text-xs text-dark/50 mt-2">Civil War field hospital - The first MASH units</p>
             </div>
           </div>
 
-          <div>
-            <div className="prose text-dark/80 mb-6">
-              <p className="leading-relaxed text-base">{book.description.substring(0, 800)}...</p>
+          {/* Right — content (3 cols) */}
+          <div className="lg:col-span-3 space-y-8">
+
+            <div className="inline-flex items-center gap-3 animate-rise-in" style={{animationDelay: '60ms'}}>
+              <span className="text-secondary/70 text-xs font-semibold tracking-[0.28em] uppercase" style={{fontFamily: "'Inter', sans-serif"}}>Book Details</span>
+              <span className="w-16 h-px bg-secondary/40 rounded-full"></span>
             </div>
 
-            <div className="mb-6">
-              <h4 className="font-semibold text-primary mb-3 flex items-center gap-2">
-                <GiCrossedSwords size={20} />
-                Themes Explored:
-              </h4>
-              <div className="flex flex-wrap gap-2">
-                {book.themes.map((theme, idx) => (
-                  <span key={idx} className="bg-secondary/20 px-3 py-1 rounded-full text-sm text-dark/70">
-                    {theme}
-                  </span>
-                ))}
-              </div>
+            <div className="animate-rise-in" style={{animationDelay: '120ms'}}>
+              <h3 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white leading-tight mb-3">
+                {book.title}
+              </h3>
             </div>
 
-            <div className="bg-secondary/15 rounded-md p-5 shadow-md mb-6 border-l-4 border-primary">
-              <FaQuoteLeft className="text-primary mb-2" size={24} />
-              <p className="text-dark/70 italic mb-3 text-sm">
-                "The weapons they carried were not muskets but hot soup, whispered prayers and compassion, bolstered by fierce determination."
-              </p>
-              <div className="flex items-center gap-2 mt-2">
-                <FaHeart className="text-primary" size={14} />
-                <span className="text-xs text-primary font-semibold">— From By Lantern's Light</span>
-                <FaHeart className="text-primary" size={14} />
-              </div>
+            <p className="text-white/58 leading-relaxed text-[15px] max-w-2xl animate-rise-in" style={{fontFamily: "'Inter', sans-serif", animationDelay: '220ms'}}>
+              {synopsis}
+            </p>
+
+            <div className="flex flex-wrap gap-2 animate-rise-in" style={{animationDelay: '320ms'}}>
+              {book.themes.map((theme, idx) => (
+                <span key={idx} className="border border-secondary/20 text-secondary/70 px-4 py-1.5 rounded-full text-xs font-medium bg-white/3" style={{fontFamily: "'Inter', sans-serif"}}>
+                  {theme}
+                </span>
+              ))}
             </div>
 
-            <div className="bg-primary/5 rounded-md p-4 mb-6 border border-primary/20">
-              <h4 className="font-semibold text-primary mb-2 flex items-center gap-2">
-                <FaBook size={18} />
-                Book Details:
-              </h4>
-              <div className="grid grid-cols-2 gap-3 text-sm">
-                <div>
-                  <span className="text-dark/50">Genre:</span>
-                  <p className="text-dark/80 font-medium">{book.details.genre}</p>
-                </div>
-                <div>
-                  <span className="text-dark/50">Setting:</span>
-                  <p className="text-dark/80 font-medium">{book.details.setting}</p>
-                </div>
-                <div>
-                  <span className="text-dark/50">Format:</span>
-                  <p className="text-dark/80 font-medium">{book.details.format}</p>
-                </div>
-              </div>
-            </div>
+            <a className="inline-flex items-center gap-2 bg-linear-to-r from-secondary to-secondary-light text-primary-dark px-8 py-3.5 rounded-full font-semibold transition-all duration-300 hover:shadow-2xl hover:shadow-secondary/30 transform hover:-translate-y-0.5 animate-rise-in" style={{fontFamily: "'Inter', sans-serif", animationDelay: '520ms'}}>
+              <FaShoppingCart size={14} />
+              Buy the Book
+            </a>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <button className="btn-primary flex-1 text-center flex items-center justify-center gap-2">
-                <FaBook size={16} />
-                Buy By Lantern's Light
-              </button>
-              <button className="btn-outline flex-1 text-center flex items-center justify-center gap-2">
-                <FaStar size={16} />
-                Read Excerpt
-              </button>
-            </div>
-
-            <div className="text-center mt-4">
-              <div className="inline-flex items-center gap-2 text-sm text-dark/50 bg-secondary/15 px-4 py-2 rounded-md">
-                <FaFire size={14} className="text-primary" />
-                <span>"A moving and informative historical novel" — Margaret V. Shedd</span>
-                <FaFire size={14} className="text-primary" />
-              </div>
-            </div>
-
-            {/* Historical Addition - The MASH Unit Info */}
-            <div className="mt-6 p-5 bg-primary/5 rounded-md border border-primary/20">
-              <h4 className="font-semibold text-primary mb-3 flex items-center gap-2">
-                <GiMedicines size={20} />
-                Historical Note: The First MASH Units
-              </h4>
-              <p className="text-dark/70 text-sm leading-relaxed">
-                In the mud-slicked fields of the 1860s, the first precursors to the American MASH unit functioned as a revolutionary "hospital on wheels" that brought life-saving surgery directly to the front lines. Under the innovative Letterman System, horse-drawn "flying" ambulances and dedicated stretcher-bearers formed a tireless chain of survival, rushing the wounded from the chaos of battle to mobile cities of canvas. Inside these "hospitals under canvas," surgeons and dedicated women of the relief corps worked through the night by the flickering glow of oil lanterns, performing grueling procedures on improvised tables to combat shock and infection. This blueprint of rapid-response medicine, pioneered by courageous volunteers who refused to wait for the wounded to reach distant cities, established the fundamental principle that would define military medicine for centuries to follow: bringing the hospital to the soldier.
-              </p>
-              <div className="mt-3 flex items-center gap-2 text-xs text-primary">
-                <FaFire size={12} />
-                <span>— From the historical archives of Civil War medicine</span>
-                <FaFire size={12} />
-              </div>
-            </div>
           </div>
         </div>
       </div>

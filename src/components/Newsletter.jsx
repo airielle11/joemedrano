@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaEnvelope, FaPaperPlane, FaBook, FaHeart, FaStar, FaFire } from 'react-icons/fa';
+import { FaPaperPlane } from 'react-icons/fa';
 import { authorData } from '../data/authorData';
 
 const Newsletter = () => {
@@ -16,70 +16,78 @@ const Newsletter = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-r from-primary to-primary-dark text-white">
-      <div className="container-custom mx-auto text-center">
-        <div className="flex justify-center mb-4">
-          <div className="bg-secondary p-4 rounded-full shadow-lg">
-            <FaFire size={32} className="text-primary-dark" />
-          </div>
-        </div>
-        <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-          Join the Lantern's Light Community
-        </h2>
-        <p className="text-lg text-white/90 mb-4 max-w-2xl mx-auto">
-          Subscribe for updates on new releases, Civil War history articles, and exclusive content.
-        </p>
-        
-        <div className="flex items-center justify-center gap-2 mb-8">
-          <div className="bg-white/15 backdrop-blur-sm px-5 py-2 rounded-full inline-flex items-center gap-2">
-            <FaEnvelope size={14} className="text-secondary" />
-            <span className="text-sm text-white/90">{authorData.email}</span>
-          </div>
-        </div>
+    <section
+      id="contact"
+      data-reveal
+      className="reveal-on-scroll py-14 relative overflow-hidden text-white"
+      style={{background: 'linear-gradient(180deg, #1A1228 0%, #120D1C 60%, #0f0d14 100%)'}}
+    >
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-secondary/20 to-transparent"></div>
+      <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/4 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary-light/5 rounded-full blur-3xl pointer-events-none"></div>
 
-        <form onSubmit={handleSubmit} className="max-w-md mx-auto flex flex-col sm:flex-row gap-4">
-          <input 
-            type="email" 
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your email address"
-            className="flex-1 px-6 py-3 rounded-md text-dark outline-none focus:ring-2 focus:ring-secondary bg-white placeholder:text-dark/40"
-            required
-          />
-          <button type="submit" className="bg-secondary hover:bg-secondary-dark text-primary-dark px-8 py-3 rounded-md font-semibold transition-all duration-300 flex items-center justify-center gap-2 transform hover:-translate-y-0.5 shadow-lg">
-            <FaPaperPlane size={18} />
-            Subscribe
-          </button>
-        </form>
+      <div className="container-custom mx-auto relative z-10">
+        <div className="max-w-xl mx-auto text-center">
 
-        {submitted && (
-          <div className="mt-4 bg-white/20 backdrop-blur-sm rounded-md p-3 inline-block mx-auto animate-pulse">
-            <p className="text-secondary font-semibold flex items-center gap-2">
-              <FaHeart size={18} />
-              Thank you for subscribing! 📚
-              <FaHeart size={18} />
+          {/* Eyebrow */}
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <span className="w-10 h-px bg-secondary/25"></span>
+            <p className="text-xs font-semibold tracking-[0.3em] uppercase text-secondary/50" style={{fontFamily: "'Inter', sans-serif"}}>
+              Stay Connected
             </p>
+            <span className="w-10 h-px bg-secondary/25"></span>
           </div>
-        )}
 
-        <div className="flex items-center justify-center gap-3 mt-6 text-white/70 text-sm flex-wrap">
-          <div className="flex items-center gap-1 bg-white/10 px-3 py-1 rounded-full">
-            <FaStar size={12} className="text-secondary" />
-            <span>Historical updates</span>
-          </div>
-          <div className="flex items-center gap-1 bg-white/10 px-3 py-1 rounded-full">
-            <FaBook size={12} className="text-secondary" />
-            <span>New releases</span>
-          </div>
-          <div className="flex items-center gap-1 bg-white/10 px-3 py-1 rounded-full">
-            <FaFire size={12} className="text-secondary" />
-            <span>Exclusive content</span>
-          </div>
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
+            Join the Community
+          </h2>
+          <p className="text-white/40 text-sm leading-relaxed mb-10 max-w-sm mx-auto" style={{fontFamily: "'Inter', sans-serif"}}>
+            Subscribe for updates on new releases, faith-based articles, and exclusive content from the author.
+          </p>
+
+          {/* Form */}
+          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 mb-4">
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your email address"
+              className="flex-1 px-6 py-3.5 rounded-full text-sm outline-none transition-all duration-300"
+              style={{
+                background: 'rgba(255,255,255,0.05)',
+                border: '1px solid rgba(255,255,255,0.1)',
+                color: 'rgba(255,255,255,0.85)',
+                fontFamily: "'Inter', sans-serif",
+              }}
+              required
+            />
+            <button
+              type="submit"
+              className="px-7 py-3.5 rounded-full font-semibold text-sm flex items-center justify-center gap-2 whitespace-nowrap transition-all duration-300 hover:-translate-y-0.5"
+              style={{
+                background: 'linear-gradient(135deg, #C4A0B0, #DEC8D4)',
+                color: '#1A1228',
+                fontFamily: "'Inter', sans-serif",
+              }}
+            >
+              <FaPaperPlane size={13} />
+              Subscribe
+            </button>
+          </form>
+
+          <p className="text-white/18 text-xs" style={{fontFamily: "'Inter', sans-serif"}}>
+            No spam ever. Unsubscribe anytime.
+          </p>
+
+          {submitted && (
+            <div className="mt-5 inline-block rounded-full px-6 py-2.5" style={{background: 'rgba(196,160,176,0.12)', border: '1px solid rgba(196,160,176,0.2)'}}>
+              <p className="text-secondary text-sm font-medium" style={{fontFamily: "'Inter', sans-serif"}}>
+                Thank you for subscribing ✦
+              </p>
+            </div>
+          )}
+
         </div>
-        
-        <p className="text-white/40 text-xs mt-6">
-          No spam ever. Unsubscribe anytime.
-        </p>
       </div>
     </section>
   );

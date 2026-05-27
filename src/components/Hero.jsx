@@ -1,101 +1,94 @@
 import React from 'react';
-import { FaArrowRight, FaChevronRight, FaStar, FaFire, FaHeart } from 'react-icons/fa';
+import { FaArrowRight, FaChevronRight, FaBookOpen, FaQuoteLeft } from 'react-icons/fa';
 import { authorData } from '../data/authorData';
 
 const Hero = () => {
+  const { book } = authorData;
+
   return (
-    <section id="home" className="min-h-screen flex items-center pt-20 relative overflow-hidden bg-gradient-to-br from-primary/90 via-primary-dark to-primary">
-      {/* Olive drab and khaki decorative elements - interchanged colors */}
-      <div className="absolute top-20 right-10 w-64 h-64 bg-secondary/20 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 left-10 w-80 h-80 bg-secondary-light/15 rounded-full blur-3xl"></div>
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-b from-secondary/5 via-transparent to-secondary/5"></div>
-      
-      {/* Floating lanterns with interchanged colors */}
-      <div className="absolute top-40 left-20 opacity-30 animate-float">
-        <FaFire size={50} className="text-secondary" />
+    <section id="home" data-reveal className="reveal-on-scroll min-h-screen flex items-center pt-24 pb-20 relative overflow-hidden sanctuary-bg">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-px h-full bg-linear-to-b from-secondary/30 via-secondary/10 to-transparent" style={{transform: 'rotate(-8deg)', transformOrigin: 'top'}}></div>
+        <div className="absolute top-0 left-1/2 w-px h-full bg-linear-to-b from-secondary-light/25 via-secondary/8 to-transparent" style={{transform: 'rotate(4deg)', transformOrigin: 'top'}}></div>
+        <div className="absolute top-0 right-1/4 w-px h-full bg-linear-to-b from-secondary/25 via-secondary/8 to-transparent" style={{transform: 'rotate(-3deg)', transformOrigin: 'top'}}></div>
       </div>
-      <div className="absolute bottom-40 right-20 opacity-30 animate-float-delayed">
-        <FaFire size={40} className="text-secondary-light" />
-      </div>
-      
-      {/* Additional floating elements */}
-      <div className="absolute top-1/3 right-10 opacity-20 animate-float">
-        <FaStar size={30} className="text-secondary" />
-      </div>
-      <div className="absolute bottom-1/3 left-10 opacity-20 animate-float-delayed">
-        <FaHeart size={25} className="text-secondary-light" />
-      </div>
-      
+
+      <div className="absolute top-24 right-16 w-72 h-72 bg-secondary/10 rounded-full blur-3xl animate-float"></div>
+      <div className="absolute bottom-24 left-16 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-float-delayed"></div>
+      <div className="absolute top-1/3 left-1/2 w-48 h-48 bg-white/5 rounded-full blur-3xl animate-soft-glow"></div>
+
       <div className="container-custom mx-auto relative z-10">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="text-center md:text-left">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/20 backdrop-blur-sm rounded-md text-secondary font-semibold text-sm mb-6">
-              <FaStar size={14} className="text-secondary-light" />
-              <span>Historical Fiction | Civil War Epic</span>
-              <FaStar size={14} className="text-secondary-light" />
+        <div className="grid lg:grid-cols-12 gap-12 items-center">
+
+          <div className="lg:col-span-6 text-center lg:text-left">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/8 border border-secondary/20 text-secondary text-[11px] font-semibold tracking-[0.28em] uppercase mb-8 animate-rise-in">
+              <FaBookOpen size={12} />
+              <span>Inspirational Fiction</span>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-secondary mb-6 leading-tight">
-              {authorData.fullName}
-              <span className="block text-secondary-light text-2xl md:text-3xl mt-2">Historical Fiction Author</span>
+
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-display font-bold text-white mb-5 leading-[0.95] tracking-tight animate-rise-in" style={{animationDelay: '120ms'}}>
+              {book.title}
             </h1>
-            <p className="text-lg text-secondary/90 mb-8 leading-relaxed">
-              Award-winning author of "By Lantern's Light" - a dramatic, fact-based story of courageous women who launched the first MASH Unit on American soil during the Civil War.
+
+            <p className="text-secondary font-display italic text-lg md:text-xl mb-3 leading-snug animate-rise-in" style={{animationDelay: '220ms'}}>
+              Through by the Works of Faith
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-              <a href="#book" className="bg-secondary hover:bg-secondary-dark text-primary-dark px-8 py-3 rounded-md font-semibold transition-all duration-300 flex items-center justify-center gap-2 group transform hover:-translate-y-0.5 shadow-lg">
-                Explore By Lantern's Light
-                <FaArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+
+            <p className="text-white/50 text-sm mb-5" style={{fontFamily: "'Inter', sans-serif"}}>
+              by {authorData.fullName}
+            </p>
+ 
+
+            <p className="max-w-xl mx-auto lg:mx-0 mb-8 text-secondary/80 text-sm italic leading-relaxed animate-rise-in" style={{fontFamily: "'Inter', sans-serif", animationDelay: '420ms'}}>
+              A story of faith, rebirth, and quiet resilience.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-rise-in" style={{animationDelay: '520ms'}}>
+              <a href="#book" className="bg-linear-to-r from-secondary to-secondary-light text-primary-dark px-8 py-3.5 rounded-full font-semibold transition-all duration-300 hover:shadow-2xl hover:shadow-secondary/30 flex items-center justify-center gap-2 group transform hover:-translate-y-0.5" style={{fontFamily: "'Inter', sans-serif"}}>
+                Explore the Book
+                <FaArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
               </a>
-              <a href="#about" className="border-2 border-secondary text-secondary hover:bg-secondary hover:text-primary-dark px-8 py-3 rounded-md font-semibold transition-all duration-300 flex items-center justify-center gap-2">
+              <a href="#about" className="border-2 border-secondary/35 text-secondary hover:bg-white/8 px-8 py-3.5 rounded-full font-semibold transition-all duration-300 flex items-center justify-center gap-2" style={{fontFamily: "'Inter', sans-serif"}}>
                 Meet the Author
-                <FaChevronRight size={18} />
+                <FaChevronRight size={15} />
               </a>
             </div>
           </div>
 
-          <div className="relative flex justify-center">
-            <div className="relative rounded-md overflow-hidden shadow-2xl max-w-md mx-auto bg-gradient-to-br from-secondary/20 via-secondary/10 to-primary/30 p-6 border-2 border-secondary/50">
-              <div className="relative">
-                <img 
-                  src="/images/carol.png"
-                  alt="Carol Cutrona"
-                  className="w-full max-w-sm md:max-w-md h-auto object-cover rounded-md shadow-xl"
-                  style={{ maxHeight: '450px' }}
-                />
-                <div className="absolute -bottom-4 -right-4 bg-secondary text-primary-dark rounded-full p-3 shadow-lg">
-                  <FaFire size={24} />
+          <div className="lg:col-span-6 relative flex justify-center lg:justify-end">
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div className="w-80 h-80 rounded-full bg-secondary/10 blur-3xl animate-soft-glow"></div>
+            </div>
+
+            <div className="relative w-full max-w-115 animate-fade-scale-in" style={{animationDelay: '180ms'}}>
+              <div className="absolute -inset-5 rounded-4xl bg-linear-to-br from-secondary/20 via-white/5 to-transparent blur-2xl"></div>
+
+              <div className="relative grid gap-5 sm:gap-0 sm:grid-cols-[1.12fr_0.88fr] items-center">
+                <div className="relative rounded-4xl overflow-hidden border border-white/10 bg-white/5 p-3 shadow-2xl book-glow transform sm:-rotate-2">
+                  <div className="absolute inset-x-5 top-5 h-px bg-linear-to-r from-transparent via-secondary/40 to-transparent"></div>
+                  <img
+                    src="/images/giving_birth_to_new_beginnings.jpg"
+                    alt="Giving Birth to New Beginnings - Book Cover"
+                    className="w-full h-auto block rounded-2xl"
+                    style={{maxHeight: '560px', objectFit: 'cover'}}
+                  />
                 </div>
-              </div>
-              
-              {/* Civil War era decorations with interchanged colors */}
-              <div className="flex justify-center gap-3 mt-4">
-                <div className="w-10 h-10 bg-secondary rounded-full flex items-center justify-center text-primary-dark text-sm shadow-md transform hover:scale-110 transition-transform">
-                  ⚔️
-                </div>
-                <div className="w-10 h-10 bg-secondary-light rounded-full flex items-center justify-center text-primary-dark text-sm shadow-md transform hover:scale-110 transition-transform">
-                  🏥
-                </div>
-                <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-secondary text-sm shadow-md transform hover:scale-110 transition-transform">
-                  🕯️
+
+                <div className="hidden sm:block sm:-ml-6 sm:self-end">
+                  <div className="glass-card p-5 text-left shadow-2xl border-white/45 max-w-60">
+                    <p className="text-primary/45 text-[10px] font-semibold tracking-[0.24em] uppercase mb-3" style={{fontFamily: "'Inter', sans-serif"}}>Featured Quote</p>
+                    <FaQuoteLeft className="text-secondary-dark mb-3" size={16} />
+                    <p className="text-dark/70 italic text-sm leading-relaxed font-display">
+                      "The duty of the flesh suits man, but the duty of the spirit suits the Lord."
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+
         </div>
       </div>
-      
-      <style>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-10px); }
-        }
-        @keyframes float-delayed {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-15px); }
-        }
-        .animate-float { animation: float 4s ease-in-out infinite; }
-        .animate-float-delayed { animation: float-delayed 5s ease-in-out infinite; }
-      `}</style>
     </section>
   );
 };
