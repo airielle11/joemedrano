@@ -17,18 +17,20 @@ const Navigation = () => {
 
       setScrolled(window.scrollY > 60);
       const sections = ['home', 'about', 'book', 'contact'];
-      const scrollPosition = window.scrollY + 150;
+      const triggerPoint = window.innerHeight * 0.42;
+
+      let nextActiveTab = 'home';
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
-          const offsetTop = element.offsetTop;
-          const offsetBottom = offsetTop + element.offsetHeight;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
-            setActiveTab(section);
-            break;
+          const { top, bottom } = element.getBoundingClientRect();
+          if (top <= triggerPoint && bottom > triggerPoint) {
+            nextActiveTab = section;
           }
         }
       }
+
+      setActiveTab(nextActiveTab);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
