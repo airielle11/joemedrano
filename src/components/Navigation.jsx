@@ -16,7 +16,7 @@ const Navigation = () => {
       }
 
       setScrolled(window.scrollY > 60);
-      const sections = ['home', 'about', 'book', 'testimonials', 'contact'];
+      const sections = ['home', 'about', 'book', 'contact'];
       const triggerPoint = window.innerHeight * 0.42;
 
       let nextActiveTab = 'home';
@@ -39,8 +39,7 @@ const Navigation = () => {
   const navItems = [
     { name: 'Home', href: '#home', id: 'home' },
     { name: 'About', href: '#about', id: 'about' },
-    { name: 'Book', href: '#book', id: 'book' },
-    { name: 'Testimonials', href: '#testimonials', id: 'testimonials' },
+    { name: 'Book', href: '#book', id: 'book' }, 
     { name: 'Contact', href: '#contact', id: 'contact' },
   ];
 
