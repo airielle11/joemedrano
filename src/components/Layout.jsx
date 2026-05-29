@@ -43,8 +43,7 @@ const Layout = () => {
       <Navigation />
       <Hero />
       <About />
-      <BookDetails />
-      <Testimonials />
+      <BookDetails /> 
       <Newsletter />
       <Footer />
     </div>
