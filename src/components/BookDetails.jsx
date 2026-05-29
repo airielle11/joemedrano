@@ -7,7 +7,7 @@ const BookDetails = () => {
   const synopsis = book.description.split('\n\n')[0].trim();
 
   return (
-    <section id="book" data-reveal className="reveal-on-scroll py-24 md:py-28 relative overflow-hidden sanctuary-bg">
+    <section id="book" data-reveal className="reveal-on-scroll py-24 md:py-28 relative overflow-hidden" style={{background: '#1A0F05'}}>
       <div className="absolute inset-x-0 top-0 h-24 bg-linear-to-b from-light/20 via-transparent to-transparent pointer-events-none"></div>
       <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-secondary/25 to-transparent"></div>
       <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl pointer-events-none"></div>
