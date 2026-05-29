@@ -17,19 +17,20 @@ const Footer = () => {
                 {authorData.name}
               </h3>
             </div>
-            <p className="text-xs text-white/35 uppercase tracking-widest" style={{fontFamily: "'Inter', sans-serif", letterSpacing: '0.18em'}}>
-              Faith · Testimony · Spiritual Growth 
+            <p className="text-xs text-white/35 uppercase tracking-widest" style={{fontFamily: "'Lato', sans-serif", letterSpacing: '0.18em'}}>
+              West Texas · Fiction · Border Stories
             </p>
           </div>
 
           {/* Center — CTA button */}
           <a
+            href='https://buy.stripe.com/7sY5kEdVm6vNfRU8Ey2kw07'
             target="_blank"
             rel="noopener noreferrer"
             className="bg-secondary text-primary-dark font-semibold text-sm uppercase px-10 py-4 rounded-full hover:bg-secondary-light transition-all duration-300 hover:shadow-xl hover:shadow-secondary/25 transform hover:-translate-y-0.5 whitespace-nowrap"
-            style={{fontFamily: "'Inter', sans-serif", letterSpacing: '0.1em'}}
+            style={{fontFamily: "'Lato', sans-serif", letterSpacing: '0.1em'}}
           >
-            Read {authorData.book.title}
+            Launch & Go-Live Portal
           </a>
 
           {/* Right — social icons */}
@@ -51,7 +52,7 @@ const Footer = () => {
         <div className="pt-6 text-center space-y-2" style={{fontFamily: "'Inter', sans-serif"}}>
           <p className="text-xs tracking-widest text-white/28 uppercase" style={{letterSpacing: '0.14em'}}>
             © 2026 {authorData.name}. All Rights Reserved.
-          </p> 
+          </p>
         </div>
 
       </div>

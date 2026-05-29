@@ -1,94 +1,137 @@
 import React from 'react';
-import { FaArrowRight, FaChevronRight, FaBookOpen, FaQuoteLeft } from 'react-icons/fa';
+import { FaArrowRight, FaBookOpen } from 'react-icons/fa';
 import { authorData } from '../data/authorData';
 
 const Hero = () => {
   const { book } = authorData;
 
   return (
-    <section id="home" data-reveal className="reveal-on-scroll min-h-screen flex items-center pt-24 pb-20 relative overflow-hidden sanctuary-bg">
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-px h-full bg-linear-to-b from-secondary/30 via-secondary/10 to-transparent" style={{transform: 'rotate(-8deg)', transformOrigin: 'top'}}></div>
-        <div className="absolute top-0 left-1/2 w-px h-full bg-linear-to-b from-secondary-light/25 via-secondary/8 to-transparent" style={{transform: 'rotate(4deg)', transformOrigin: 'top'}}></div>
-        <div className="absolute top-0 right-1/4 w-px h-full bg-linear-to-b from-secondary/25 via-secondary/8 to-transparent" style={{transform: 'rotate(-3deg)', transformOrigin: 'top'}}></div>
+    <section id="home" className="relative min-h-screen flex overflow-hidden" style={{background: '#1A0F05'}}>
+
+      {/* ── Ambient light orbs ── */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 left-0 w-[600px] h-[600px] rounded-full opacity-20 blur-[120px]" style={{background: 'radial-gradient(circle, #C8A96E 0%, transparent 70%)', transform: 'translate(-30%, -30%)'}}></div>
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full opacity-15 blur-[100px]" style={{background: 'radial-gradient(circle, #7A5230 0%, transparent 70%)', transform: 'translate(20%, 20%)'}}></div>
+        <div className="absolute top-1/2 left-1/2 w-px h-3/4 opacity-10" style={{background: 'linear-gradient(to bottom, transparent, #C8A96E, transparent)', transform: 'translate(-50%, -50%)'}}></div>
       </div>
 
-      <div className="absolute top-24 right-16 w-72 h-72 bg-secondary/10 rounded-full blur-3xl animate-float"></div>
-      <div className="absolute bottom-24 left-16 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-float-delayed"></div>
-      <div className="absolute top-1/3 left-1/2 w-48 h-48 bg-white/5 rounded-full blur-3xl animate-soft-glow"></div>
+      {/* ── Thin gold top border ── */}
+      <div className="absolute top-0 left-0 right-0 h-px" style={{background: 'linear-gradient(90deg, transparent, #C8A96E55, transparent)'}}></div>
 
-      <div className="container-custom mx-auto relative z-10">
-        <div className="grid lg:grid-cols-12 gap-12 items-center">
+      {/* ── LEFT PANEL — text ── */}
+      <div className="relative z-10 flex flex-col justify-center px-8 md:px-16 lg:px-24 pt-32 pb-20 w-full lg:w-1/2">
 
-          <div className="lg:col-span-6 text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/8 border border-secondary/20 text-secondary text-[11px] font-semibold tracking-[0.28em] uppercase mb-8 animate-rise-in">
-              <FaBookOpen size={12} />
-              <span>Inspirational Fiction</span>
-            </div>
+        {/* Series badge */}
+        <div className="flex items-center gap-3 mb-8 animate-rise-in">
+          <div className="w-8 h-px" style={{background: '#C8A96E'}}></div>
+          <span className="text-[10px] tracking-[0.35em] uppercase" style={{color: '#C8A96E88', fontFamily: "'Lato', sans-serif"}}>
+            First Book of the West Texas Series
+          </span>
+        </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-display font-bold text-white mb-5 leading-[0.95] tracking-tight animate-rise-in" style={{animationDelay: '120ms'}}>
-              {book.title}
-            </h1>
-
-            <p className="text-secondary font-display italic text-lg md:text-xl mb-3 leading-snug animate-rise-in" style={{animationDelay: '220ms'}}>
-              Through by the Works of Faith
-            </p>
-
-            <p className="text-white/50 text-sm mb-5" style={{fontFamily: "'Inter', sans-serif"}}>
-              by {authorData.fullName}
-            </p>
- 
-
-            <p className="max-w-xl mx-auto lg:mx-0 mb-8 text-secondary/80 text-sm italic leading-relaxed animate-rise-in" style={{fontFamily: "'Inter', sans-serif", animationDelay: '420ms'}}>
-              A story of faith, rebirth, and quiet resilience.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-rise-in" style={{animationDelay: '520ms'}}>
-              <a href="#book" className="bg-linear-to-r from-secondary to-secondary-light text-primary-dark px-8 py-3.5 rounded-full font-semibold transition-all duration-300 hover:shadow-2xl hover:shadow-secondary/30 flex items-center justify-center gap-2 group transform hover:-translate-y-0.5" style={{fontFamily: "'Inter', sans-serif"}}>
-                Explore the Book
-                <FaArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
-              </a>
-              <a href="#about" className="border-2 border-secondary/35 text-secondary hover:bg-white/8 px-8 py-3.5 rounded-full font-semibold transition-all duration-300 flex items-center justify-center gap-2" style={{fontFamily: "'Inter', sans-serif"}}>
-                Meet the Author
-                <FaChevronRight size={15} />
-              </a>
-            </div>
+        {/* Title */}
+        <div className="mb-8 animate-rise-in" style={{animationDelay: '100ms'}}>
+          <p className="text-[11px] tracking-[0.4em] uppercase mb-2" style={{color: '#C8A96E66', fontFamily: "'Lato', sans-serif"}}>THE</p>
+          <h1
+            className="font-display font-bold leading-none tracking-tight"
+            style={{
+              fontSize: 'clamp(7rem, 7vw, 5.5rem)',
+              color: '#FAF6EF',
+              textShadow: '0 0 60px rgba(200,169,110,0.12)',
+            }}
+          >
+            WRATH
+          </h1>
+          <div className="mt-3 flex items-center gap-4"> 
+            <p className="font-display italic text-sm" style={{color: '#C8A96E99'}}>by Joe Medrano</p>
           </div>
+        </div>
 
-          <div className="lg:col-span-6 relative flex justify-center lg:justify-end">
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div className="w-80 h-80 rounded-full bg-secondary/10 blur-3xl animate-soft-glow"></div>
-            </div>
+        {/* Description */}
+        <p
+          className="text-sm leading-relaxed max-w-md mb-10 animate-rise-in"
+          style={{color: 'rgba(250,246,239,0.55)', fontFamily: "'Lato', sans-serif", animationDelay: '200ms', lineHeight: '1.85'}}
+        >
+          A young boy in the border town of Presidio risks everything to help his mother — drawn into the dangerous world across the Rio Grande, where loyalty costs more than he can afford to lose.
+        </p>
 
-            <div className="relative w-full max-w-115 animate-fade-scale-in" style={{animationDelay: '180ms'}}>
-              <div className="absolute -inset-5 rounded-4xl bg-linear-to-br from-secondary/20 via-white/5 to-transparent blur-2xl"></div>
+        {/* CTAs */}
+        <div className="flex flex-col sm:flex-row gap-4 animate-rise-in" style={{animationDelay: '400ms'}}>
+          <a
+            href="#book"
+            className="group inline-flex items-center justify-center gap-3 px-8 py-4 font-semibold text-sm tracking-widest uppercase transition-all duration-300 hover:-translate-y-0.5"
+            style={{
+              background: 'linear-gradient(135deg, #C8A96E, #E2C99A)',
+              color: '#1A0F05',
+              fontFamily: "'Lato', sans-serif",
+              letterSpacing: '0.12em',
+              clipPath: 'polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%)',
+            }}
+          >
+            Get the Book
+            <FaArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
+          </a>
+          <a
+            href="#about"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 text-sm tracking-widest uppercase transition-all duration-300 hover:-translate-y-0.5"
+            style={{
+              border: '1px solid rgba(200,169,110,0.25)',
+              color: 'rgba(200,169,110,0.7)',
+              fontFamily: "'Lato', sans-serif",
+              letterSpacing: '0.12em',
+              clipPath: 'polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%)',
+            }}
+          >
+            Meet the Author
+          </a>
+        </div>
 
-              <div className="relative grid gap-5 sm:gap-0 sm:grid-cols-[1.12fr_0.88fr] items-center">
-                <div className="relative rounded-4xl overflow-hidden border border-white/10 bg-white/5 p-3 shadow-2xl book-glow transform sm:-rotate-2">
-                  <div className="absolute inset-x-5 top-5 h-px bg-linear-to-r from-transparent via-secondary/40 to-transparent"></div>
-                  <img
-                    src="/images/giving_birth_to_new_beginnings.jpg"
-                    alt="Giving Birth to New Beginnings - Book Cover"
-                    className="w-full h-auto block rounded-2xl"
-                    style={{maxHeight: '560px', objectFit: 'cover'}}
-                  />
-                </div>
-
-                <div className="hidden sm:block sm:-ml-6 sm:self-end">
-                  <div className="glass-card p-5 text-left shadow-2xl border-white/45 max-w-60">
-                    <p className="text-primary/45 text-[10px] font-semibold tracking-[0.24em] uppercase mb-3" style={{fontFamily: "'Inter', sans-serif"}}>Featured Quote</p>
-                    <FaQuoteLeft className="text-secondary-dark mb-3" size={16} />
-                    <p className="text-dark/70 italic text-sm leading-relaxed font-display">
-                      "The duty of the flesh suits man, but the duty of the spirit suits the Lord."
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+        {/* Scroll cue */}
+        <div className="mt-16 flex items-center gap-3 animate-rise-in" style={{animationDelay: '500ms'}}>
+          <div className="flex flex-col items-center gap-1">
+            <div className="w-px h-8 animate-scroll-bounce" style={{background: 'linear-gradient(to bottom, #C8A96E55, transparent)'}}></div>
           </div>
-
+          <span className="text-[10px] tracking-[0.3em] uppercase" style={{color: '#C8A96E44', fontFamily: "'Lato', sans-serif"}}>Scroll to explore</span>
         </div>
       </div>
+
+      {/* ── RIGHT PANEL — book cover ── */}
+      <div className="hidden lg:flex relative w-1/2 items-center justify-center">
+
+        {/* Warm spotlight behind cover */}
+        <div className="absolute w-96 h-96 rounded-full blur-[80px] opacity-25" style={{background: 'radial-gradient(circle, #C8A96E 0%, transparent 70%)'}}></div>
+
+        {/* Book cover */}
+        <div className="relative animate-fade-scale-in" style={{animationDelay: '200ms'}}>
+          {/* Outer glow frame */}
+          <div className="absolute -inset-6 rounded-sm opacity-30 blur-2xl" style={{background: 'linear-gradient(135deg, #C8A96E, #7A5230)'}}></div>
+
+          {/* Thin gold border frame */}
+          <div className="absolute -inset-1 rounded-sm" style={{border: '1px solid rgba(200,169,110,0.2)'}}></div>
+
+          <img
+            src="/images/the_wrath.jpg"
+            alt="The Wrath by Joe Medrano"
+            className="relative block book-glow ml-4 mt-4"
+            style={{
+              width: '340px',
+              maxWidth: '90%',
+              boxShadow: '0 40px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(200,169,110,0.15)',
+            }}
+          />
+
+          {/* Genre tag below cover */}
+          <div className="mt-6 text-center">
+            <p className="text-[10px] tracking-[0.3em] uppercase" style={{color: '#C8A96E44', fontFamily: "'Lato', sans-serif"}}>West Texas Fiction</p>
+          </div>
+        </div>
+      </div>
+
+      {/* ── Mobile book cover (shown below text on small screens) ── */}
+      <div className="lg:hidden absolute bottom-0 right-0 w-32 opacity-20 pointer-events-none">
+        <img src="/images/the_wrath.jpg" alt="" className="w-full" />
+      </div>
+
     </section>
   );
 };

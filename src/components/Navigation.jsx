@@ -16,7 +16,7 @@ const Navigation = () => {
       }
 
       setScrolled(window.scrollY > 60);
-      const sections = ['home', 'about', 'book', 'contact'];
+      const sections = ['home', 'about', 'book', 'testimonials', 'contact'];
       const triggerPoint = window.innerHeight * 0.42;
 
       let nextActiveTab = 'home';
@@ -40,6 +40,7 @@ const Navigation = () => {
     { name: 'Home', href: '#home', id: 'home' },
     { name: 'About', href: '#about', id: 'about' },
     { name: 'Book', href: '#book', id: 'book' },
+    { name: 'Testimonials', href: '#testimonials', id: 'testimonials' },
     { name: 'Contact', href: '#contact', id: 'contact' },
   ];
 
@@ -69,7 +70,7 @@ const Navigation = () => {
     }`}
     style={{
       background: scrolled
-        ? 'rgba(26, 18, 40, 0.92)'
+        ? 'rgba(59, 36, 16, 0.92)'
         : 'transparent',
       backdropFilter: scrolled ? 'blur(20px)' : 'none',
     }}>
@@ -120,7 +121,7 @@ const Navigation = () => {
       {/* Mobile menu */}
       {isMenuOpen && (
         <div className="md:hidden absolute top-full left-0 w-full border-t border-white/8 animate-slide-down"
-          style={{background: 'rgba(26, 18, 40, 0.97)', backdropFilter: 'blur(20px)'}}>
+          style={{background: 'rgba(59, 36, 16, 0.97)', backdropFilter: 'blur(20px)'}}>
           <div className="flex flex-col py-6 px-8 gap-1">
             {navItems.map((item) => (
               <a

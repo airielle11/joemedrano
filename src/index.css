@@ -1,23 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;600&display=swap');
 @import "tailwindcss";
 
 @theme {
   --font-display: "Playfair Display", serif;
-  --font-sans: "Inter", sans-serif;
+  --font-sans: "Lato", sans-serif;
 
-  /* Light in the Dark — Charcoal Purple, Ivory & Dusty Mauve */
-  --color-primary: #2D2040;
-  --color-primary-dark: #1A1228;
-  --color-primary-light: #4A3570;
-  --color-secondary: #C4A0B0;
-  --color-secondary-dark: #A8849A;
-  --color-secondary-light: #DEC8D4;
-  --color-accent: #4A3570;
-  --color-accent-light: #6B52A0;
-  --color-dark: #120D1C;
-  --color-light: #FDFAF7;
-  --color-ivory: #F7F3EE;
-  --color-taupe: #D4C9BC;
+  /* West Texas Desert — Parchment, Saddle Brown & Dusty Sage */
+  --color-primary: #5C3D1E;
+  --color-primary-dark: #3B2410;
+  --color-primary-light: #7A5230;
+  --color-secondary: #C8A96E;
+  --color-secondary-dark: #A8884A;
+  --color-secondary-light: #E2C99A;
+  --color-accent: #8B6340;
+  --color-accent-light: #A67C52;
+  --color-dark: #2A1A0A;
+  --color-light: #FAF6EF;
+  --color-ivory: #F5EFE3;
+  --color-taupe: #D9CCBA;
 }
 
 @layer base {
@@ -25,7 +25,7 @@
 
   body {
     @apply bg-light text-dark;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Lato', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -70,7 +70,7 @@
 
   .spirit-divider {
     @apply w-20 h-1 mx-auto rounded-full;
-    background: linear-gradient(90deg, #C4A0B0, #2D2040, #C4A0B0);
+    background: linear-gradient(90deg, #C8A96E, #5C3D1E, #C8A96E);
   }
 }
 
@@ -90,8 +90,8 @@
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(196, 160, 176, 0.2); }
-  50% { box-shadow: 0 0 50px rgba(196, 160, 176, 0.5); }
+  0%, 100% { box-shadow: 0 0 20px rgba(200, 169, 110, 0.2); }
+  50% { box-shadow: 0 0 50px rgba(200, 169, 110, 0.5); }
 }
 
 @keyframes slideDown {
@@ -103,6 +103,19 @@
   from { opacity: 0; transform: translateY(24px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+@keyframes drawLine {
+  from { transform: scaleX(0); transform-origin: left; }
+  to { transform: scaleX(1); transform-origin: left; }
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); opacity: 0.5; }
+  50% { transform: translateY(6px); opacity: 1; }
+}
+
+.animate-draw-line { animation: drawLine 1.2s ease-out both; }
+.animate-scroll-bounce { animation: scrollBounce 1.8s ease-in-out infinite; }
 
 @keyframes fadeScaleIn {
   from { opacity: 0; transform: scale(0.96); }
@@ -123,7 +136,7 @@
 .animate-soft-glow { animation: softGlow 4.5s ease-in-out infinite; }
 
 .shimmer-text {
-  background: linear-gradient(90deg, #DEC8D4, #ffffff, #C4A0B0, #ffffff, #DEC8D4);
+  background: linear-gradient(90deg, #E2C99A, #ffffff, #C8A96E, #ffffff, #E2C99A);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -132,11 +145,11 @@
 }
 
 .sanctuary-bg {
-  background: linear-gradient(160deg, #120D1C 0%, #1A1228 30%, #2D2040 65%, #4A3570 100%);
+  background: linear-gradient(160deg, #2A1A0A 0%, #3B2410 30%, #5C3D1E 65%, #7A5230 100%);
 }
 
 .page-divider {
-  background: linear-gradient(180deg, rgba(18, 13, 28, 0) 0%, rgba(253, 250, 247, 0.96) 100%);
+  background: linear-gradient(180deg, rgba(42, 26, 10, 0) 0%, rgba(250, 246, 239, 0.96) 100%);
 }
 
 .book-glow {
