@@ -35,7 +35,7 @@ const Hero = () => {
           <h1
             className="font-display font-bold leading-none tracking-tight"
             style={{
-              fontSize: 'clamp(7rem, 7vw, 5.5rem)',
+              fontSize: 'clamp(6rem, 7vw, 5.5rem)',
               color: '#FAF6EF',
               textShadow: '0 0 60px rgba(200,169,110,0.12)',
             }}
