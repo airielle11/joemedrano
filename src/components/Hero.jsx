@@ -18,8 +18,11 @@ const Hero = () => {
       {/* ── Thin gold top border ── */}
       <div className="absolute top-0 left-0 right-0 h-px" style={{background: 'linear-gradient(90deg, transparent, #C8A96E55, transparent)'}}></div>
 
+      {/* Container wrapping both columns so content aligns with nav */}
+      <div className="container-custom mx-auto flex items-start w-full">
+
       {/* ── LEFT PANEL — text ── */}
-      <div className="relative z-10 flex flex-col justify-center px-8 md:px-16 lg:px-24 pt-32 pb-20 w-full lg:w-1/2">
+      <div className="relative z-10 flex flex-col justify-center pt-32 pb-20 w-full lg:w-1/2">
 
         {/* Series badge */}
         <div className="flex items-center gap-3 mb-8 animate-rise-in">
@@ -37,7 +40,7 @@ const Hero = () => {
             style={{
               fontSize: 'clamp(6rem, 7vw, 5.5rem)',
               color: '#FAF6EF',
-              textShadow: '0 0 60px rgba(200,169,110,0.12)',
+              textShadow: '0 0 60px rgba(200,169,110,0.12)', 
             }}
           >
             WRATH
@@ -93,6 +96,7 @@ const Hero = () => {
           </div>
           <span className="text-[10px] tracking-[0.3em] uppercase" style={{color: '#C8A96E44', fontFamily: "'Lato', sans-serif"}}>Scroll to explore</span>
         </div>
+
       </div>
 
       {/* ── RIGHT PANEL — book cover ── */}
@@ -102,29 +106,27 @@ const Hero = () => {
         <div className="absolute w-96 h-96 rounded-full blur-[80px] opacity-25" style={{background: 'radial-gradient(circle, #C8A96E 0%, transparent 70%)'}}></div>
 
         {/* Book cover */}
-        <div className="relative animate-fade-scale-in" style={{animationDelay: '200ms'}}>
+        <div className="relative animate-fade-scale-in mt-24 ml-34" style={{animationDelay: '200ms'}}>
           {/* Outer glow frame */}
-          <div className="absolute -inset-6 rounded-sm opacity-30 blur-2xl" style={{background: 'linear-gradient(135deg, #C8A96E, #7A5230)'}}></div>
+          {/* <div className="absolute -inset-6 rounded-sm opacity-30 blur-2xl" style={{background: 'linear-gradient(135deg, #C8A96E, #7A5230)'}}></div> */}
 
           {/* Thin gold border frame */}
-          <div className="absolute -inset-1 rounded-sm" style={{border: '1px solid rgba(200,169,110,0.2)'}}></div>
+          {/* <div className="absolute -inset-1 rounded-sm" style={{border: '1px solid rgba(200,169,110,0.2)'}}></div> */}
 
           <img
-            src="/images/the_wrath.jpg"
+            src="/images/1s.png"
             alt="The Wrath by Joe Medrano"
-            className="relative block book-glow ml-4 mt-4"
+            className="relative block ml-4 mt-4"
             style={{
-              width: '340px',
+              width: '360px',
               maxWidth: '90%',
-              boxShadow: '0 40px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(200,169,110,0.15)',
+              // boxShadow: '0 40px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(200,169,110,0.15)',
+              transform: 'rotate(-8deg) translateY(-6px)',
             }}
           />
 
-          {/* Genre tag below cover */}
-          <div className="mt-6 text-center">
-            <p className="text-[10px] tracking-[0.3em] uppercase" style={{color: '#C8A96E44', fontFamily: "'Lato', sans-serif"}}>West Texas Fiction</p>
-          </div>
         </div>
+      </div>
       </div>
 
       {/* ── Mobile book cover (shown below text on small screens) ── */}

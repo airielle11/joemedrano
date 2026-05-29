@@ -48,7 +48,6 @@ const Newsletter = () => {
             Subscribe for updates on new releases, events, and exclusive content from Joe Medrano.
           </p>
 
-          {/* Email pill at top */}
           {authorData.email && (
             <div className="flex items-center justify-center mb-6 -mt-4">
               <a
